@@ -15,5 +15,5 @@ Client Insight for Wealth Management
         Attrition.md
         LifeEventsPrediction.md
 
-    [API Reference](https://console.bluemix.net/apidocs/2890-client-insight-for-wealth-management?&language=node#introduction)
+    [API Reference](https://console.bluemix.net/apidocs/2890)
     {: .navgroup-end}
