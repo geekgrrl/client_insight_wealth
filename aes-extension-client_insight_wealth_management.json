@@ -1,0 +1,68 @@
+{
+	"host": "cii-api.mybluemix.net",
+	"info": {
+		"x-ibm-name": "aes-extension-client_insight_wealth_management",
+		"title": "Client Insight for Wealth Management Vendor Extension for APIe",
+		"description": "APIExplorer vendor extension file",
+		"termsOfService": "",
+		"contact": {
+			"email": "kmcgann@ca.ibm.com",
+			"name": "Karen McGann"
+		},
+		"version": "1.0.0"
+	},
+	"x-aes-provider": {
+		"summary": "Generate client insights for insurers",
+		"apiType": "DocFirst",
+		"apiStatus": "Draft",
+		"serviceStatus": "STAGE_LIVE",
+		"productImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAB6RJREFUeNrsW21sFEUYfq+UtqFID7BQpEArMVCBXBtQ0jbQHooJxlCw0QgkfBn5UUMBCT+Mokg1GhNDIbGJGkFICn4EaY2BHyptIa1WIeUULYYQrhSkFJSjQdOqEefZ21l292b3dvc+oX2TyX7O7jzPvF8zO0s0JINbXLF+wV8DfxeyTTkrHlby5H0zaWbFz4oP+yPS007dcQQw0EvYpoIVbN0RPi7ASgMrjYyMhqQlgIEG0I2srJJ7OhYCzdjLSi0jI5A0BDDw29hmQxR6245W7GQkbEsoAQw47HlPDHvcikasYUQ0O31AilN1Z2UH221KIHiS392EtsgmGHsNYC/CSw+xUphkEQ3RYinTBn/MCJBDWlMcbd2Jb/DaCZ2uuwi8IxJcdxl42yS4LNp8RyLBXwgMUP2PvfTlmT/opyt/aq7NGp9J8/JGUdXD99Fkd7qehKJwPsFlIblpSqTDe/NYN9W1X6Yb/f+Gvbdq7gR667F8vWP0miVN4QjYIWd3IVLv66X9vqt0vOtGXIhYWZTDyngqy9cqYsv5AO3ruMJKj6IRh1fOoKyMVH4LssZNtgmQk5wmkTou+/RMiCrGSqa4M+jg8hnkmTDS9D7f5ZtUuf9n6gr0i0jwGiVLZgSc1yc5AF/6gU9Rx7m5o6iy4F7KHZUeVdA72y9R+8U+CfyJ52eT+zYQSZbu6aBW1vO9271az8faNefdkxIJOnPwMwLyLRMg5/av6s+Xvu9Tev7thfdT5YPZUe/xi30DVLYn6LxPVM3W9HybP0DvfdtNbQw8OqGUmcOi6dm0rjhXowlz6k5K+6fXz1Y7xtdEY4cUA8e3QWTzsQYP+ehUj2LzevBLdnfQkc5rigZCC14+cpYW1P2g3Ic6qAup+/439aM3iNJl0VhgoyjkweEpah8j8JDvmOoHCRivOY+ehyxiJjczJ0hMw9oiyc5n6vwDr3vc36c+7RY59FRBG1aJGsa9PWxz6s72mDs/vbfnDq37er+iASV5bjpa9RBNYr5CVFfgqIFtm6EGyDM5IaM7KzE41rKueJJEwumem9TNnBwEqv+xHP6sjh5ljIYaUBHuCf/UlMUU6PCtLcLzUPsTLxTTJwwwzAEkgAyUNv91OrSmyOorKuQpNqEPWCKqkZWRmhQJfh/TRHj8yaODKv/6ogcUZ2hDxBogD3gs5/sXrvVrQpdZLpCWmkI57jRbYJHhqf1A9aFOKQLsXT5LOVeS7zasy7NCgWAyp5APlNRdW+4kZq842KkQUF9ZEEIEwI/LSrPd20hv1QRA5eGLEAq58PCHyKCvC1nhGWf0+HJ5nKAxAY+TmA3wnAwewxX7crlozMjhbEsOCOiRkhousPFdSwuk5IebJPzCFm++dF6dCKEu7nli2hijx3tEPiDqc3vo+bRU5/OuyO0Dqgj0DEtwQASP+wiBW7x5CiG4F3X4yFA3PCYR1pRITGB1YY6i8tjimMvYe4ZHBB4ZHXJ65PZqTeDaoB8HSCmwPA6AvDh/ktnjy80yQcsC0C1rglMF2HIyskakUmb6MKFaP/v5r8rQ1Uy+Xuu5TQLL7VGvReDtcQ7XcA8Hb0eiHt8yM4ZJBBiB5/s83zcSjAAxGOJ5AeqYEYf7q0tyaftRv632pkQTPDz+WOb0xKHphulxOKlm8d9sTuDs5rm01TslcRoQLtwFdOl0WX6Wree/8/hUTabIM1J+7HaYrEWNALNwB9U/xmz1wyenST0P8GbqH0+Joga4DOP5FyyD404tWsBv/cLf1xzRcyL2AQh3ZsnM5sPnFPDJKGoCbFNpFO6sgodfCCRmqN0sMgHL8eO/W8FwdyuFlNAGZwRHtJjl5Z4JmVRztMsUfE1TlxKyXlmQ58iDRyB+EQE+y2rDzG8Ys/lHd/s0WRp6U4rVHRS259XxGvvriydqPHm0bNxAfBGbANQb4N1pN+mrRzbRwDKvtMWxekSmJwe5evYbrYk2/eYQAuTxseWZBXh2yGfzttL8ccFpbGxxzK/rQTd2/k4VBWPp6kulktpzwb47fpMuAfVHU/1bMVW02rQ2A4XGcufFwXPhx7gO0PAJAI0cQA0SNg+1jySJ0YvFsUCDWR7QGI4AqD0mKjgJx3oLNSTgmINCemoGLtq97r9uiYBGwzxAXodnGg18PUEbXyzPwjx1vEYBjS2O+XV3nOcSedvMONKvNRS1EOvwQj6LzZuSJX0b2NV2SRqYIDfHC32XiRZ+syNkLM9zd8eZ5YFm29fRNt5WA9lrJROsFTnD5Z5sxc4Q+9G7CHVIbXlPY4tjnI9376NN3Afwturdl4xNI44/jgIoHFu8RTQpsvnIOSUfwUxw6zrh9Kbw42hEn8fx+bq6ZCJ5ckZS3ugM6TgucYy9H4BhglB73vOYG2x9ziOaC7T3eVwmAPNmCV8gYVXQ8weenm40EWp/gYRMQtIskTESODzYvMk3AGdLZGQCEr5IKkKJbJGUTAL8QEKXyTl1FWRhmVzYCRH5AV4744QkAe+1sm54aKmsnSffjYulbc0Jyg8ukp1LMjq8Irs/WdmeFFX5hNokAl9r1eYjMgGDZOmO/mVm6KepaLVoUP82JyBj8P04GSZ0wlck5a+zQzLY5X8BBgCMsYEHiJ7LLAAAAABJRU5ErkJggg==",
+		"linktoProduct": "",
+		"companyName": "IBM",
+		"showPlan": "No",
+		"showGrouping": "No",
+		"showSwaggerDownload": "Yes",
+		"altApiBaseUrlObj": {
+			"AltApiBaseUrl": "http://cii-api-mybluemix.net/api/v2/wealth",
+			"BaseUrlVar": []
+		},
+		"providerEmail": "kmcgann@ca.ibm.com",
+		"enableTryItOut": "Yes",
+		"callMethod": "PROXY",
+		"data_URX_id": "",
+		"marketPlaceList": ["Others"],
+		"languagelist": ["Java", "JavaScript + jQuery", "Node", "Python 3", "Shell + curl"],
+		"namespaceList": ["apiexplorer", "bluemix"],
+		"cloudCategory": {
+			"bluemixList": ["Data_Analytics"],
+			"technologyList": [],
+			"platformList": ["bss"]
+		},
+		"whoCanEdit": ["theresa.stdenis@ca.ibm.com"]
+	},
+	"x-aes-control": {
+		"endpointVisibility": []
+	},
+	"x-aes-documentation": {
+		"gettingstarted": [],
+		"externalInfo": {
+			"trialLink": "",
+			"buyLink": "",
+			"trialLinktst": "",
+			"buyLinktst": ""
+		},
+		"externalLinks": [],
+		"planPayload": [],
+		"customized-codesnippet": []
+	},
+	"paths": {},
+	"swagger": "2.0",
+	"x-ibm-configuration": {
+		"enforced": false,
+		"testable": true,
+		"phase": "realized",
+		"cors": {
+			"enabled": true
+		}
+	}
+}
