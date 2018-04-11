@@ -1,0 +1,1302 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The Client Insight for Wealth Management service provides a set of analytical models that help you generate client insights for use in marketing, distribution, and services provision for wealth management companies.",
+    "version" : "2.0",
+    "title" : "Client Insight for Wealth Management",
+    "license": {
+			"name": "This product includes software originally developed by IBM Corporation, Copyright 2018 IBM Corp.",
+			"url": "https://www.ibm.com/legal/us/en/copytrade.shtml"
+		}
+  },
+  "host" : "cii-api.mybluemix.net",
+  "basePath" : "/api/v2/wealth",
+  "tags" : [ {
+    "name" : "Customers"
+  }, {
+    "name" : "Data Ingestion"
+  }, {
+    "name" : "Analytics"
+  }, {
+    "name" : "Events"
+  }, {
+    "name" : "Segments"
+  }, {
+    "name" : "Jobs"
+  }, {
+    "name" : "Models"
+  }, {
+    "name" : "Sample Data"
+  }, {
+    "name" : "Tenant Configuration"
+  }, {
+    "name" : "Manage Users"
+  }, {
+    "name" : "Web Hooks"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/customers/event_scores" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get all customer event scores",
+        "description" : "This operation returns the latest customer event scores.",
+        "operationId" : "customerEventScoresGetAll",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of customer event score entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the customer event score entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "score_code",
+          "in" : "query",
+          "description" : "The code used to filter the results by matching score codes. If not specified, the operation returns results for all score codes. The value of this parameter can be ATTRITION_SURVIVAL, LIFE_EVENT_PREDICTION, XSELL, or SEGMENTATION.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "event_type_id",
+          "in" : "query",
+          "description" : "The ID identifying the type of event.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of Customer Event Score objects."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers/{customerId}/event_scores" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get the event scores for a customer",
+        "description" : "This operation returns the event scores for the customer specified by the customerId parameter.",
+        "operationId" : "customerEventScoresGet",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "The ID of the customer.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of customer event score entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the customer event score entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "score_code",
+          "in" : "query",
+          "description" : "The code used to filter the results by matching score codes. If not specified, the operation returns results for all score codes. The value of this parameter can be ATTRITION_SURVIVAL, LIFE_EVENT_PREDICTION, XSELL, or SEGMENTATION.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "event_type_id",
+          "in" : "query",
+          "description" : "The ID identifying the type of event.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of Customer Event Score objects for specific customer."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers/{customerId}" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get information about a customer",
+        "description" : "This operation returns personal and insurance information for the customer specified by the customerId parameter.",
+        "operationId" : "customerGetById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "The ID of the customer.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of Customer objects."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers/{customerId}/product_scores" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get product scores for a customer",
+        "description" : "This operation returns the product-based scores for the customer specified by the customerId parameter.",
+        "operationId" : "productScoreGet",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "The ID of the customer.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "score_code",
+          "in" : "query",
+          "description" : "The code used to filter the results by matching score codes. If not specified, the operation returns results for all score codes. The value of this parameter can be ATTRITION_SURVIVAL, LIFE_EVENT_PREDICTION, XSELL, or SEGMENTATION.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of product score entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the product score entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of ProductScore objects for specific customer."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get information about customers",
+        "description" : "This operation returns the latest customer information for all customers if the page_size and page parameters are not specified. Otherwise, this operation returns only the customer entries on the page specified by the page_size and page parameters.",
+        "operationId" : "customersGet",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of customer entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the customer entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of Customer objects."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers/{customerId}/scores" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get the scores for a customer",
+        "description" : "This operation returns the scores for the customer specified by the customerId parameter.",
+        "operationId" : "customerScoresGet",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "The ID of the customer.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of customer entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the customer entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "score_code",
+          "in" : "query",
+          "description" : "The code used to filter the results by matching score codes. If not specified, the operation returns results for all score codes. The value of this parameter can be ATTRITION_SURVIVAL, LIFE_EVENT_PREDICTION, XSELL, or SEGMENTATION.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of CustomerScore objects for specific customer."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers/{customerId}/products" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get the products for a customer",
+        "description" : "This operation returns the products for the customer specified by the customerId parameter.",
+        "operationId" : "customerProductsGet",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "The ID of the customer.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of products entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the products entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of product objects for specific customer."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers/product_scores" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get all customer product scores",
+        "description" : "This operation returns the latest customer product scores.",
+        "operationId" : "customerProductScoresGetAll",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of customer entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the customer entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "score_code",
+          "in" : "query",
+          "description" : "The code used to filter the results by matching score codes. If not specified, the operation returns results for all score codes. The value of this parameter can be ATTRITION_SURVIVAL, LIFE_EVENT_PREDICTION, XSELL, or SEGMENTATION.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of Customer Product Scores objects."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/customers/scores" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "Get all customer scores",
+        "description" : "This operation returns the latest customer scores.",
+        "operationId" : "customerScoresGetAll",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of customer entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the customer entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "score_code",
+          "in" : "query",
+          "description" : "The code used to filter the results by matching score codes. If not specified, the operation returns results for all score codes. The value of this parameter can be ATTRITION_SURVIVAL, LIFE_EVENT_PREDICTION, XSELL, or SEGMENTATION.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of Customer Score objects."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/ingest/transform/${transformCode}" : {
+      "post" : {
+        "tags" : [ "Data Ingestion" ],
+        "summary" : "Transform data",
+        "description" : "This operation transforms data previously loaded into the database by the POST /ingest operation into the wide form format required for analysis.",
+        "operationId" : "transform",
+        "parameters" : [ {
+          "name" : "transformCode",
+          "in" : "path",
+          "description" : "The code of the transformation job to be executed. The value of this parameter can be Attrition, AttritionWithAggregation, CrossSellProduct, GeneralSegmentation, GeneralSegmentationWithAggregation, or LifeEventPrediction.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Job created.",
+            "schema" : {
+              "$ref" : "#/definitions/JobStatus"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/ingest" : {
+      "get" : {
+        "tags" : [ "Data Ingestion" ],
+        "summary" : "List data ingestion jobs",
+        "description" : "This operation returns the list of all data ingestion jobs.",
+        "operationId" : "list",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Data-ingestion jobs."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Data Ingestion" ],
+        "summary" : "Load data into the database",
+        "description" : "This operation loads the data into the database in the format needed for the POST /ingest/transform/${modelId} operation.",
+        "operationId" : "create",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "payload",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Job created.",
+            "schema" : {
+              "$ref" : "#/definitions/JobStatus"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/ingest/{jobId}" : {
+      "get" : {
+        "tags" : [ "Data Ingestion" ],
+        "summary" : "Get the status of an ingestion job",
+        "description" : "This operation returns the status of the ingestion job specified by the jobId parameter.",
+        "operationId" : "status",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "description" : "The ID of the job",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Function1RequestContextFutureRouteResult"
+            }
+          }
+        }
+      }
+    },
+    "/analytics/train/{modelId}" : {
+      "post" : {
+        "tags" : [ "Analytics" ],
+        "summary" : "Train a model",
+        "description" : "This operation trains the model specified by the modelId parameter.",
+        "operationId" : "train",
+        "parameters" : [ {
+          "name" : "modelId",
+          "in" : "path",
+          "description" : "The ID of the model to train. The value of this parameter can be Attrition, LifeEventPrediction, CrossSellProduct, or GeneralSegmentation.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "payload",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/AnalyticsTrainingOrScoringRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Training completed successfully."
+          },
+          "202" : {
+            "description" : "Tenant analytics training request submitted successfully."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/analytics/score" : {
+      "get" : {
+        "tags" : [ "Analytics" ],
+        "summary" : "List scoring jobs",
+        "description" : "This operation returns the list of all scoring jobs.",
+        "operationId" : "getScoringJobs",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Model scoring jobs."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/analytics/status/{jobId}" : {
+      "get" : {
+        "tags" : [ "Analytics" ],
+        "summary" : "Get the status of an analytics job",
+        "description" : "This operation returns the status of the analytics job specified by the jobId parameter.",
+        "operationId" : "analyticsJobStatus",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "description" : "ID of the job",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation.",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/analytics/train" : {
+      "get" : {
+        "tags" : [ "Analytics" ],
+        "summary" : "List training jobs",
+        "description" : "This operation returns the list of all training jobs.",
+        "operationId" : "getTrainingJobs",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Model training jobs."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/analytics/score/{modelId}" : {
+      "post" : {
+        "tags" : [ "Analytics" ],
+        "summary" : "Score a model",
+        "description" : "This operation scores the model specified by the modelId parameter.",
+        "operationId" : "score",
+        "parameters" : [ {
+          "name" : "modelId",
+          "in" : "path",
+          "description" : "The ID of the model to score. The value of this parameter can be Attrition, LifeEventPrediction, CrossSellProduct, or GeneralSegmentation.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AnalyticsTrainingOrScoringRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Scoring completed successfully."
+          },
+          "202" : {
+            "description" : "Tenant analytics scoring request submitted successfully."
+          },
+          "400" : {
+            "description" : "Invalid request."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/events/{eventTypeId}" : {
+      "get" : {
+        "tags" : [ "Events" ],
+        "summary" : "Get single event type",
+        "description" : "This operation returns information about a single event type.",
+        "operationId" : "eventGetV2",
+        "parameters" : [ {
+          "name" : "eventTypeId",
+          "in" : "path",
+          "description" : "The ID of the event type.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON representation of the requested event type."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/events" : {
+      "get" : {
+        "tags" : [ "Events" ],
+        "summary" : "Get all event types",
+        "description" : "This operation returns a list of event types.",
+        "operationId" : "getAllEventsV2",
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of event type entries per page. Must be an integer between 1 and 999.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the event type entries to be returned. For example, page 0 returns the first page.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with the most recent date before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON representation of the requested event types."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/segments" : {
+      "get" : {
+        "tags" : [ "Segments" ],
+        "summary" : "Get segments",
+        "description" : "This operation returns the groups, or segments, within your data and the records that define those groups. If page_size and page parameters are specified, it returns only the records on the page specified by those parameters. If effective_date is specified, it returns only the records with dates before or equal to the effective_date. For example, segment 1 is defined by AGE, EDUCATION and MARITAL_STATUS it. A segment has a record for every attribute so segment 1 has three records. If page_size is 3 and page is 0, then this operation returns the AGE, EDUCATION and MARITAL_STATUS records for Segment 1. If page size is 4, the operation returns the three records for segment 1 and one record for segment 2. If page size is 6, then this operation returns the three records for segment 1 and three records for segment 2. If effective_date is 2017-12-08, only records with a date on or before December 8, 2017 are returned.",
+        "operationId" : "getSegments",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The number of segment records per page. Must be an integer between 1 and 999. If not specified, default is 20.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page offset of the segment records to be returned. For example, page 0 returns the first page. If not specified, default is 0.",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "score_code",
+          "in" : "query",
+          "description" : "The code used to filter the results by matching score codes. If not specified, the operation returns results for all score codes. The value of this parameter can be ATTRITION_SURVIVAL, LIFE_EVENT_PREDICTION, XSELL, or SEGMENTATION.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "effective_date",
+          "in" : "query",
+          "description" : "Used to get the records with dates before or equal to the specified date. The format is yyyy-mm-dd. If not specified, this operation uses the current date.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Segments retrieved"
+          },
+          "400" : {
+            "description" : "The request contains bad syntax or cannot be fulfilled."
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}/cancel" : {
+      "post" : {
+        "tags" : [ "Jobs" ],
+        "summary" : "Cancel a job",
+        "description" : "This operation cancels the job specified by the jobId parameter.",
+        "operationId" : "cancelJob",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "description" : "Job ID to look up.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation."
+          },
+          "400" : {
+            "description" : "The request contains bad syntax or cannot be fulfilled."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}" : {
+      "get" : {
+        "tags" : [ "Jobs" ],
+        "summary" : "Get the status of a job",
+        "description" : "This operation gets the status of the job specified by the jobId parameter.",
+        "operationId" : "jobStatus",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "description" : "Job ID to look up.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request was successful."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/jobs" : {
+      "get" : {
+        "tags" : [ "Jobs" ],
+        "summary" : "Get the status of all jobs",
+        "description" : "This operation gets the status of all your jobs.",
+        "operationId" : "allJobs",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/models" : {
+      "get" : {
+        "tags" : [ "Models" ],
+        "summary" : "List all models",
+        "description" : "This operation returns the list of all available models with last successfully trained/scored time.",
+        "operationId" : "listModels",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returning a list of models."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/models/{modelId}/reports" : {
+      "get" : {
+        "tags" : [ "Models" ],
+        "summary" : "Get reports for the trained analytical model",
+        "description" : "This operation retrieves the report for the previously trained model specified by the modelId parameter.",
+        "operationId" : "reports",
+        "parameters" : [ {
+          "name" : "modelId",
+          "in" : "path",
+          "description" : "The ID of the model to train. The value of this parameter can be AttritionSurvival, LifeEventPrediction, CrossSellProduct, or GeneralSegmentation.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a JSON list of Model Metric objects."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/sample_data" : {
+      "post" : {
+        "tags" : [ "Sample Data" ],
+        "summary" : "Load sample data",
+        "description" : "This operation loads the data provided by IBM for evaluation purposes. It is not intended for use in a production environment.",
+        "operationId" : "loadSampleData",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample data loaded."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/config/cos_credentials" : {
+      "put" : {
+        "tags" : [ "Tenant Configuration" ],
+        "summary" : "Update Cloud Object Storage account",
+        "description" : "This operation is used for updating the Cloud Object Storage account credentials.",
+        "operationId" : "cosCredentials",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/StorageConfigRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success operation updating the Cloud Object Storage credentials."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/users/{userId}" : {
+      "get" : {
+        "tags" : [ "Manage Users" ],
+        "summary" : "Get a user",
+        "description" : "This operation returns the information for the user specified by the userId parameter.",
+        "operationId" : "getCredential",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "The ID of the user",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returning information for the specified user."
+          },
+          "400" : {
+            "description" : "The request contains bad syntax or cannot be fulfilled."
+          },
+          "404" : {
+            "description" : "The user was not found."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Manage Users" ],
+        "summary" : "Delete a user",
+        "description" : "This operation deletes the user specified by the userId parameter.",
+        "operationId" : "deleteCredential",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "The ID of the user",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation. The specified user was deleted."
+          },
+          "400" : {
+            "description" : "The request contains bad syntax or cannot be fulfilled."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "Manage Users" ],
+        "summary" : "Update a user",
+        "description" : "This operation updates the user specified by the userId parameter. The request must be made by an admin user.",
+        "operationId" : "patchCredential",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "The ID of the user",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Acceptable values for role are 'admin', 'operations', and 'dev'.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PatchCredentialRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation. The specified user record was updated."
+          },
+          "400" : {
+            "description" : "The request contains bad syntax or cannot be fulfilled."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/users" : {
+      "get" : {
+        "tags" : [ "Manage Users" ],
+        "summary" : "Get users",
+        "description" : "This operation returns the information for all users.",
+        "operationId" : "getCredentials",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returning a list of users."
+          },
+          "400" : {
+            "description" : "The request contains bad syntax or cannot be fulfilled."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Manage Users" ],
+        "summary" : "Create a user",
+        "description" : "This operation creates a new user with the information in the body of the request.",
+        "operationId" : "createCredential",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Acceptable values for role are 'admin', 'operations', and 'dev'.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CreateCredentialRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Function1RequestContextFutureRouteResult"
+            }
+          },
+          "201" : {
+            "description" : "Credential successfully generated."
+          },
+          "400" : {
+            "description" : "The request contains bad syntax or cannot be fulfilled."
+          },
+          "500" : {
+            "description" : "Internal server error."
+          }
+        }
+      }
+    },
+    "/web_hooks" : {
+      "get" : {
+        "tags" : [ "Web Hooks" ],
+        "summary" : "Get all web hooks",
+        "description" : "This operation returns the callbacks you have set up to notify you of changes to the status of your jobs.",
+        "operationId" : "allWebHooks",
+        "parameters" : [ {
+          "name" : "status_type",
+          "in" : "query",
+          "description" : "The type of job status used to filter the results. If not specified, the operation returns results for all status types. The value of this parameter can be Success, Fail, or Cancelled",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation."
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Web Hooks" ],
+        "summary" : "Create a new web hook",
+        "description" : "This operation adds a callback so that, when the status of one of your jobs changes, you get a notification sent to the URL specified by the url parameter.",
+        "operationId" : "addWebHook",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CreateWebHookRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation.",
+            "schema" : {
+              "$ref" : "#/definitions/Function1RequestContextFutureRouteResult"
+            }
+          },
+          "201" : {
+            "description" : "Web hook successfully registered."
+          },
+          "400" : {
+            "description" : "Invalid request"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/web_hooks/{webHookId}" : {
+      "put" : {
+        "tags" : [ "Web Hooks" ],
+        "summary" : "Update a web hook",
+        "description" : "This operation allows you to change an existing web hook.",
+        "operationId" : "updateWebHook",
+        "parameters" : [ {
+          "name" : "webHookId",
+          "in" : "path",
+          "description" : "The ID of the web hook.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UpdateWebHookRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Web hook successfully updated."
+          },
+          "400" : {
+            "description" : "Invalid request"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Web Hooks" ],
+        "summary" : "Delete a web hook",
+        "description" : "This operation deletes an existing web hook.",
+        "operationId" : "deleteWebHook",
+        "parameters" : [ {
+          "name" : "webHookId",
+          "in" : "path",
+          "description" : "Web hook to update",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Web hook successfully deleted."
+          },
+          "400" : {
+            "description" : "Invalid request"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : { },
+  "definitions" : {
+    "Function1" : {
+      "type" : "object"
+    },
+    "Function1RequestContextFutureRouteResult" : {
+      "type" : "object"
+    },
+    "JobStatus" : {
+      "type" : "object",
+      "required" : [ "job_id", "message", "status" ],
+      "properties" : {
+        "job_id" : {
+          "type" : "string"
+        },
+        "status" : {
+          "$ref" : "#/definitions/StatusType"
+        },
+        "message" : {
+          "type" : "string"
+        }
+      }
+    },
+    "StatusType" : {
+      "type" : "object"
+    },
+    "AnalyticsTrainingOrScoringRequest" : {
+      "type" : "object",
+      "required" : [ "settings" ],
+      "properties" : {
+        "settings" : {
+          "$ref" : "#/definitions/JsObject"
+        }
+      }
+    },
+    "JsObject" : {
+      "type" : "object",
+      "required" : [ "fields" ],
+      "properties" : {
+        "fields" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "$ref" : "#/definitions/JsValue"
+          }
+        }
+      }
+    },
+    "JsValue" : {
+      "type" : "object"
+    },
+    "StorageConfigRequest" : {
+      "type" : "object",
+      "required" : [ "properties" ],
+      "properties" : {
+        "properties" : {
+          "$ref" : "#/definitions/StorageConfigRequestProperties"
+        }
+      }
+    },
+    "StorageConfigRequestProperties" : {
+      "type" : "object",
+      "required" : [ "accessKey", "bucket", "endpoint", "secretKey" ],
+      "properties" : {
+        "endpoint" : {
+          "type" : "string",
+          "description": "The Cloud Object Storage endpoint."
+        },
+        "bucket" : {
+          "type" : "string",
+          "description": "A globally unique name of your choice for the bucket in Cloud Object Storage. If the bucket doesn't exist in the Cloud Object Storage account, it will be automatically created for you."
+        },
+        "accessKey" : {
+          "type" : "string",
+          "description": "The access key from the Cloud Object Storage service credentials."
+        },
+        "secretKey" : {
+          "type" : "string",
+          "description": "The secret key from the Cloud Object Storage service credentials."
+        }
+      }
+    },
+    "PatchCredentialRequest" : {
+      "type" : "object",
+      "required" : [ "role" ],
+      "properties" : {
+        "role" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CreateCredentialRequest" : {
+      "type" : "object",
+      "required" : [ "firstName", "lastName", "role", "userId" ],
+      "properties" : {
+        "role" : {
+          "type" : "string",
+          "description": "The role of the user. Must be admin, operations, or dev."
+        },
+        "firstName" : {
+          "type" : "string",
+          "description": "The given name of the user."
+        },
+        "lastName" : {
+          "type" : "string",
+          "description": "The surname of the user."
+        },
+        "userId" : {
+          "type" : "string",
+          "description": "The ID of the user."
+        }
+      }
+    },
+    "CreateWebHookRequest" : {
+      "type" : "object",
+      "required" : [ "status_type", "url", "web_hook_id" ],
+      "properties" : {
+        "web_hook_id" : {
+          "type" : "string",
+          "description": "The ID of the web hook."
+        },
+        "web_hook_name" : {
+          "type" : "string",
+          "description": "The name of the web hook."
+        },
+        "status_type" : {
+          "type" : "string",
+          "description": "The status of the notifications provided by the web hook. The value of this parameter can be Success, Fail, or Cancelled."
+        },
+        "url" : {
+          "type" : "string",
+          "description": "The URL where the notifications are to be delivered."
+        }
+      }
+    },
+    "UpdateWebHookRequest" : {
+      "type" : "object",
+      "properties" : {
+        "web_hook_name" : {
+          "type" : "string",
+          "description": "The name of the web hook."
+        },
+        "status_type" : {
+          "type" : "string",
+          "description": "The status of the notifications provided by the web hook. The value of this parameter can be Success, Fail, or Cancelled."
+        },
+        "url" : {
+          "type" : "string",
+          "description": "The URL where the notifications are to be delivered."
+        }
+      }
+    }
+  }
+}
