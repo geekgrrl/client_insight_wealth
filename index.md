@@ -9,7 +9,7 @@ lastupdated: "2018-04-11"
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 
-# Getting started with {{site.data.keyword.client_insight_wealth_short}}
+# Getting started with Client Insight for Wealth Management
 {: #getting_started_client_insight_wealth_short}
 
 The {{site.data.keyword.client_insight_wealth}} service provides a set of analytical models that help you generate client insights for use in marketing, distribution, and services provision for wealth management companies. You can segment clients based on behavior, determine attrition propensity, and enhance client engagement increasing retention, cross-sell, and up-sell opportunities.
