@@ -1,0 +1,19 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="client_insight_wealth" audience="service" href="/docs/services/client_insight_wealth/index.html"}
+Client Insight for Wealth Management
+
+    {: .navgroup id="learn"}
+    index.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    {: .topicgroup}
+    Model Reference
+        GeneralSegmentation.md
+        Attrition.md
+        LifeEventsPrediction.md
+
+    [API Reference](https://dev-console.stage1.bluemix.net/apidocs/5577-client-insight-for-wealth-management#introduction)
+    {: .navgroup-end}
